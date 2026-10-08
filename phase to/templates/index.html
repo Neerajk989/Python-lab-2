@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tempo — Simple Alarm Clock</title>
+  <meta name="description" content="A simple Python alarm clock. Set your next alarm, hear a chime, and take a five-minute snooze.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+<div class="shell">
+  <header><a class="brand" href="/" aria-label="Tempo home"><span class="brand-mark">◷</span> tempo<span class="brand-dot">.</span></a><span class="project-tag">PYTHON LAB <span>/</span> SIMPLE ALARM CLOCK</span></header>
+  <main>
+    <div class="page-heading"><div><p class="eyebrow">A LITTLE MORE INTENTION</p><h1>Make time for what matters.</h1></div><span class="date" id="date"></span></div>
+    <div class="workspace">
+      <section class="clock-panel" aria-label="Current time and alarm status">
+        <div class="panel-top"><span class="eyebrow">YOUR LOCAL TIME</span><span class="zone" id="zone"></span></div>
+        <div class="clock-wrap"><div class="clock" id="clock">00:00<span class="seconds">:00</span></div><p id="weekday" class="weekday"></p></div>
+        <div class="orbit" aria-hidden="true"><div class="dial"><span class="tick top">12</span><span class="tick right">3</span><span class="tick bottom">6</span><span class="tick left">9</span><div class="hand hour" id="hour-hand"></div><div class="hand minute" id="minute-hand"></div><div class="hand second" id="second-hand"></div><span class="pin"></span></div></div>
+        <div class="next-alarm"><span class="alarm-icon" aria-hidden="true">◴</span><div><p id="status-title">Your time is yours.</p><p id="countdown">Set an alarm when you’re ready.</p></div><span class="status-badge" id="badge">STANDBY</span></div>
+      </section>
+      <section class="setup-panel" aria-labelledby="setup-title">
+        <p class="eyebrow">YOUR NEXT MOMENT</p><h2 id="setup-title">Set an alarm</h2><p class="intro">A gentle nudge, right on time.</p>
+        <form id="alarm-form">
+          <label for="alarm-time">Alarm time <span>24-hour clock</span></label><input type="time" id="alarm-time" required aria-describedby="time-help"><p class="field-help" id="time-help">Past times are scheduled for tomorrow.</p>
+          <label for="alarm-label">What’s it for? <span>Optional</span></label><input type="text" id="alarm-label" placeholder="e.g. Study break" maxlength="60">
+          <div class="sound-row"><div><label for="sound">Alarm sound</label><select id="sound"><option value="chime">Soft chime</option><option value="pulse">Bright pulse</option><option value="silent">Silent alert</option></select></div><button class="icon-button" type="button" id="test-sound" aria-label="Preview alarm sound">♪</button></div>
+          <button class="primary" id="set-button" type="submit">Set alarm</button><button class="cancel" type="button" id="cancel" hidden>Cancel alarm</button>
+          <p id="feedback" role="status" aria-live="polite"></p>
+        </form>
+        <div class="notice"><span aria-hidden="true">ⓘ</span><p>Keep this page open and your device awake. Alarms are cleared when you reload or close the page.</p></div>
+      </section>
+    </div>
+    <footer><span>ONE MOMENT AT A TIME.</span><span>Built with Python <span class="footer-dot">·</span> Neeraj Khapre</span></footer>
+  </main>
+</div>
+<dialog id="ring-dialog" aria-labelledby="ring-title"><div class="ring-icon" aria-hidden="true">◴</div><p class="eyebrow">THIS IS YOUR MOMENT</p><h2 id="ring-title">Time’s up.</h2><p id="ring-label"></p><button class="primary" id="dismiss">Dismiss alarm</button><button class="secondary" id="snooze">Snooze for 5 minutes</button></dialog>
+</body></html>
